@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Countdown to Greece Trip 💖</title>
+  <style>
+
+  body {
+    background-image: url("./src/3.png");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #4a2c2a;
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(74, 44, 42, 0.3); 
+  }
+
+  body > * {
+    position: relative;
+    z-index: 1; /* para que el contenido quede encima */
+  }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      color: #8b3a62;
+    }
+    #countdown {
+      display: flex;
+      gap: 1em;
+      font-size: 1.8em;
+    }
+    .time-box {
+      background: #ffe3e9;
+      border: 2px solid #f4a1b8;
+      border-radius: 10px;
+      padding: 0.8em 1em;
+      text-align: center;
+      min-width: 60px;
+    }
+    .time-box span {
+      display: block;
+    }
+    .label {
+      font-size: 0.5em;
+      margin-top: 0.2em;
+      color: #ec2d56;
+    }
+    #message {
+      margin-top: 2em;
+      font-size: 1.7em;
+      color: #ec2d56;
+    }
+
+    .decor {
+      position: absolute;
+      opacity: 0.9;
+    }
+    .decor.top-left {
+      top: 10px;
+      left: 10px;
+      transform: rotate(-15deg);
+    }
+    .decor.bottom-right {
+      bottom: 10px;
+      right: 10px;
+      transform: rotate(10deg);
+    }
+  </style>
+</head>
+<body>
+  <!-- imágenes decorativas (puedes reemplazar con tus propias URLs) -->
+  <img class="decor top-left" src="./src/2.png" alt="olive branch" width="400" height="400" />
+  <img class="decor bottom-right" src="./src/1.png" alt="mexican floral" width="400" height="400" />
+
+  <center>
+    <h1 style="color: #ec2d56;">❤️ 🏛️ Νάγια & Jair 🪅 ❤️</h1>
+    <h1 >🚃🧳✈️🛄🌍🗺️🛬❤️</h1>
+  </center>
+
+  <h1 style="color: #ec2d56;">🇲🇽 Countdown to Greece 🇬🇷💫</h1>
+  <div id="countdown">
+    <div class="time-box">
+      <span id="days">0</span>
+      <span class="label">Days</span>
+    </div>
+    <div class="time-box">
+      <span id="hours">0</span>
+      <span class="label">Hours</span>
+    </div>
+    <div class="time-box">
+      <span id="minutes">0</span>
+      <span class="label">Minutes</span>
+    </div>
+    <div class="time-box">
+      <span id="seconds">0</span>
+      <span class="label">Seconds</span>
+    </div>
+  </div>
+   <h1 style="color: #ec2d56;">Remaining to meet my love 🥹💕</h1>
+  <div id="message"></div>
+
+  <script>
+
+    const target = new Date("2025-12-24T10:45:00Z").getTime();
+
+    const countdownEl = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds"),
+    };
+    const messageEl = document.getElementById("message");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = target - now;
+
+      if (diff <= 0) {
+  
+        countdownEl.days.textContent = "00";
+        countdownEl.hours.textContent = "00";
+        countdownEl.minutes.textContent = "00";
+        countdownEl.seconds.textContent = "00";
+        messageEl.textContent = "🎉 The great day is today! 🇬🇷💕";
+        return; 
+      }
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      const days = Math.floor(diff / day);
+      const hours = Math.floor((diff % day) / hour);
+      const minutes = Math.floor((diff % hour) / minute);
+      const seconds = Math.floor((diff % minute) / second);
+
+      countdownEl.days.textContent = String(days).padStart(2, "0");
+      countdownEl.hours.textContent = String(hours).padStart(2, "0");
+      countdownEl.minutes.textContent = String(minutes).padStart(2, "0");
+      countdownEl.seconds.textContent = String(seconds).padStart(2, "0");
+    }
+
+
+    updateCountdown();
+    const intervalId = setInterval(() => {
+      updateCountdown();
+
+      if (new Date().getTime() >= target) {
+        clearInterval(intervalId);
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
