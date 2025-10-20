@@ -162,6 +162,37 @@
         clearInterval(intervalId);
       }
     }, 1000);
+
+    const messages = [
+      "Hoy te ves preciosa 💕", "No olvides que te amo ❤️", "Amo tus ojos 😍", "You make my days brighter ☀️",
+      "Cada día falta menos para abrazarte 🤗", "Eres mi sueño hecho realidad 💫", "Can't wait to see your smile 💋",
+      "Eres mi razón para sonreír 😊", "Te pienso todo el tiempo 💭", "You are my favorite person 💕",
+      "Eres mi amorcito", "Your eyes are my safe place 👀", "Te extraño tanto 😔", "Cada segundo sin ti cuenta ⏳",
+      "I’m counting down the days to hold you 💞", "Eres mi amor infinito ♾️", "Nunca olvides cuánto te amo 💖",
+      "Tu risa es mi melodía favorita 🎶", "I adore your soul ✨", "No hay día que no piense en ti 💘",
+      "You are my sunshine 🌞", "Eres la más linda del mundo 💐", "Te amo más de lo que imaginas 💗",
+      "Every heartbeat whispers your name 💓", "Faltan pocos días para verte 😍", "Eres mi persona favorita 💌",
+      "You make my world beautiful 🌸", "Eres mi todo 🌎", "My love grows stronger every day 🌹",
+      "Eres mi mejor aventura ✈️", "Te amo hasta el infinito 💫", "You’re always in my heart 💝",
+      "Cada día te amo más 💞", "You complete me ❤️", "Eres la razón de mis sonrisas 😄",
+      "Te amo con todo mi ser 💓", "Can’t wait to kiss you  💋", "Eres mi paz 🕊️",
+      "You’re my best dream 💭", "Cada segundo contigo vale oro 💛", "My heart belongs to you 💘",
+      "Te extraño y te amo 💕", "Eres la luz de mis días ☀️", "Thinking of you right now 💭",
+      "Tu amor me da fuerza 💪", "Eres mi felicidad 🌈", "You’re my forever love 💗",
+      "Cada día que pasa te amo más 💕", "My heart beats for you 💓", "Te amo más allá de las palabras 💞",
+      "Eres mi inspiración 💫", "You are my destiny 💖", "Nada me hace más feliz que tú 😊",
+      "Eres mi estrella en el cielo 🌟", "My favorite place is by your side 💑", "Te amo por quien eres 💗",
+      "I dream of you every night 🌙", "Eres mi amor eterno 💘", "You’re my sweetest thought 🍯",
+      "Tu sonrisa ilumina mi mundo 💡", "I love you endlessly 💕", "Eres mi corazón 💓",
+      "Can't wait to hold your hand 🤝", "Te amo más cada mañana ☀️", "You make my soul dance 💃",
+      "Eres todo lo que necesito ❤️", "Our love is my favorite story 📖", "Cada día falta menos 💞"
+    ];
+    const totalDays = 65; 
+    const today = new Date();
+    const diffDays = Math.floor((target - today.getTime()) / (1000 * 60 * 60 * 24));
+    const index = Math.min(messages.length - 1, Math.max(0, totalDays - diffDays));
+    messageEl.textContent = messages[index];
   </script>
 </body>
 </html>
+
