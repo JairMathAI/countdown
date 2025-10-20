@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Countdown to Greece Trip 💖</title>
   <style>
-
   body {
     background-image: url("./src/3.png");
     background-size: cover; 
@@ -26,67 +25,71 @@
     inset: 0;
     background-color: rgba(74, 44, 42, 0.3); 
   }
-
   body > * {
     position: relative;
-    z-index: 1; /* para que el contenido quede encima */
+    z-index: 1;
   }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 0.5em;
-      color: #8b3a62;
-    }
-    #countdown {
-      display: flex;
-      gap: 1em;
-      font-size: 1.8em;
-    }
-    .time-box {
-      background: #ffe3e9;
-      border: 2px solid #f4a1b8;
-      border-radius: 10px;
-      padding: 0.8em 1em;
-      text-align: center;
-      min-width: 60px;
-    }
-    .time-box span {
-      display: block;
-    }
-    .label {
-      font-size: 0.5em;
-      margin-top: 0.2em;
-      color: #ec2d56;
-    }
-    #message {
-      margin-top: 2em;
-      font-size: 1.7em;
-      color: #ec2d56;
-    }
-
-    .decor {
-      position: absolute;
-      opacity: 0.9;
-    }
-    .decor.top-left {
-      top: 10px;
-      left: 10px;
-      transform: rotate(-15deg);
-    }
-    .decor.bottom-right {
-      bottom: 10px;
-      right: 10px;
-      transform: rotate(10deg);
-    }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #8b3a62;
+  }
+  #countdown {
+    display: flex;
+    gap: 1em;
+    font-size: 1.8em;
+  }
+  .time-box {
+    background: #ffe3e9;
+    border: 2px solid #f4a1b8;
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    text-align: center;
+    min-width: 60px;
+  }
+  .time-box span {
+    display: block;
+  }
+  .label {
+    font-size: 0.5em;
+    margin-top: 0.2em;
+    color: #ec2d56;
+  }
+  #message {
+    margin-top: 2em;
+    font-size: 1.7em;
+    color: #ec2d56;
+    text-align: center;
+    max-width: 80%;
+    opacity: 0;
+    transition: opacity 2s ease;
+  }
+  .fade-in {
+    opacity: 1;
+  }
+  .decor {
+    position: absolute;
+    opacity: 0.9;
+  }
+  .decor.top-left {
+    top: 10px;
+    left: 10px;
+    transform: rotate(-15deg);
+  }
+  .decor.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    transform: rotate(10deg);
+  }
   </style>
 </head>
 <body>
-  <!-- imágenes decorativas (puedes reemplazar con tus propias URLs) -->
   <img class="decor top-left" src="./src/2.png" alt="olive branch" width="400" height="400" />
   <img class="decor bottom-right" src="./src/1.png" alt="mexican floral" width="400" height="400" />
 
   <center>
     <h1 style="color: #ec2d56;">❤️ 🏛️ Νάγια & Jair 🪅 ❤️</h1>
-    <h1 >🚃🧳✈️🛄🌍🗺️🛬❤️</h1>
+    <h1>🚃🧳✈️🛄🌍🗺️🛬❤️</h1>
   </center>
 
   <h1 style="color: #ec2d56;">🇲🇽 Countdown to Greece 🇬🇷💫</h1>
@@ -108,11 +111,11 @@
       <span class="label">Seconds</span>
     </div>
   </div>
-   <h1 style="color: #ec2d56;">Remaining to meet my love 🥹💕</h1>
+
+  <h1 style="color: #ec2d56;">Remaining to meet my love 🥹💕</h1>
   <div id="message"></div>
 
   <script>
-
     const target = new Date("2025-12-24T10:45:00Z").getTime();
 
     const countdownEl = {
@@ -123,18 +126,51 @@
     };
     const messageEl = document.getElementById("message");
 
+    const messages = [
+      "Hoy te ves preciosa 💕", "No olvides que te amo ❤️", "Amo tus ojos 😍", "You make my days brighter ☀️",
+      "Cada día falta menos para abrazarte 🤗", "Eres mi sueño hecho realidad 💫", "Can't wait to see your smile 💋",
+      "Eres mi razón para sonreír 😊", "Te pienso todo el tiempo 💭", "You are my favorite person 💕",
+      "Eres mi amorcito ❤️", "Your eyes are my safe place 👀", "Te extraño tanto 😔", "Cada segundo sin ti cuenta ⏳",
+      "I’m counting down the days to hold you 💞", "Eres mi amor infinito ♾️", "Nunca olvides cuánto te amo 💖",
+      "Tu risa es mi melodía favorita 🎶", "I adore your soul ✨", "No hay día que no piense en ti 💘",
+      "You are my sunshine 🌞", "Eres la más linda del mundo 💐", "Te amo más de lo que imaginas 💗",
+      "Every heartbeat whispers your name 💓", "Faltan pocos días para verte 😍", "Eres mi persona favorita 💌",
+      "You make my world beautiful 🌸", "Eres mi todo 🌎", "My love grows stronger every day 🌹",
+      "Eres mi mejor aventura ✈️", "Te amo hasta el infinito 💫", "You’re always in my heart 💝",
+      "Cada día te amo más 💞", "You complete me ❤️", "Eres la razón de mis sonrisas 😄",
+      "Te amo con todo mi ser 💓", "Can’t wait to kiss you again 💋", "Eres mi paz 🕊️",
+      "You’re my best dream 💭", "Cada segundo contigo vale oro 💛", "My heart belongs to you 💘",
+      "Te extraño y te amo 💕", "Eres la luz de mis días ☀️", "Thinking of you right now 💭",
+      "Tu amor me da fuerza 💪", "Eres mi felicidad 🌈", "You’re my swetheart 💕",
+      "Cada día que pasa te amo más 💕", "My heart beats for you 💓", "Te amo más allá de las palabras 💞",
+      "Eres mi inspiración 💫", "You are my destiny 💖", "Nada me hace más feliz que tú 😊",
+      "Eres mi estrella en el cielo 🌟", "My favorite place is by your side 💑", "Te amo por quien eres 💗",
+      "I dream of you every night 🌙", "Eres mi amor eterno 💘", "You’re my sweetest thought 🍯",
+      "Tu sonrisa ilumina mi mundo 💡", "I love you endlessly 💕", "Eres mi corazón 💓",
+      "Can't wait to hold your hand 🤝", "Te amo más cada mañana ☀️", "You make my soul dance 💃",
+      "Eres todo lo que necesito ❤️", "Our love is my favorite story 📖", "Cada día falta menos 💞"
+    ];
+
+    function updateMessage(daysRemaining) {
+      const maxIndex = messages.length - 1;
+      const index = Math.min(maxIndex, Math.max(0, daysRemaining));
+      messageEl.textContent = messages[index];
+      messageEl.classList.remove("fade-in");
+      void messageEl.offsetWidth; // reinicia animación
+      messageEl.classList.add("fade-in");
+    }
+
     function updateCountdown() {
       const now = new Date().getTime();
       const diff = target - now;
 
       if (diff <= 0) {
-  
         countdownEl.days.textContent = "00";
         countdownEl.hours.textContent = "00";
         countdownEl.minutes.textContent = "00";
         countdownEl.seconds.textContent = "00";
         messageEl.textContent = "🎉 The great day is today! 🇬🇷💕";
-        return; 
+        return;
       }
 
       const second = 1000;
@@ -151,48 +187,17 @@
       countdownEl.hours.textContent = String(hours).padStart(2, "0");
       countdownEl.minutes.textContent = String(minutes).padStart(2, "0");
       countdownEl.seconds.textContent = String(seconds).padStart(2, "0");
-    }
 
+      updateMessage(days);
+    }
 
     updateCountdown();
     const intervalId = setInterval(() => {
       updateCountdown();
-
       if (new Date().getTime() >= target) {
         clearInterval(intervalId);
       }
     }, 1000);
-
-    const messages = [
-      "Hoy te ves preciosa 💕", "No olvides que te amo ❤️", "Amo tus ojos 😍", "You make my days brighter ☀️",
-      "Cada día falta menos para abrazarte 🤗", "Eres mi sueño hecho realidad 💫", "Can't wait to see your smile 💋",
-      "Eres mi razón para sonreír 😊", "Te pienso todo el tiempo 💭", "You are my favorite person 💕",
-      "Eres mi amorcito", "Your eyes are my safe place 👀", "Te extraño tanto 😔", "Cada segundo sin ti cuenta ⏳",
-      "I’m counting down the days to hold you 💞", "Eres mi amor infinito ♾️", "Nunca olvides cuánto te amo 💖",
-      "Tu risa es mi melodía favorita 🎶", "I adore your soul ✨", "No hay día que no piense en ti 💘",
-      "You are my sunshine 🌞", "Eres la más linda del mundo 💐", "Te amo más de lo que imaginas 💗",
-      "Every heartbeat whispers your name 💓", "Faltan pocos días para verte 😍", "Eres mi persona favorita 💌",
-      "You make my world beautiful 🌸", "Eres mi todo 🌎", "My love grows stronger every day 🌹",
-      "Eres mi mejor aventura ✈️", "Te amo hasta el infinito 💫", "You’re always in my heart 💝",
-      "Cada día te amo más 💞", "You complete me ❤️", "Eres la razón de mis sonrisas 😄",
-      "Te amo con todo mi ser 💓", "Can’t wait to kiss you  💋", "Eres mi paz 🕊️",
-      "You’re my best dream 💭", "Cada segundo contigo vale oro 💛", "My heart belongs to you 💘",
-      "Te extraño y te amo 💕", "Eres la luz de mis días ☀️", "Thinking of you right now 💭",
-      "Tu amor me da fuerza 💪", "Eres mi felicidad 🌈", "You’re my forever love 💗",
-      "Cada día que pasa te amo más 💕", "My heart beats for you 💓", "Te amo más allá de las palabras 💞",
-      "Eres mi inspiración 💫", "You are my destiny 💖", "Nada me hace más feliz que tú 😊",
-      "Eres mi estrella en el cielo 🌟", "My favorite place is by your side 💑", "Te amo por quien eres 💗",
-      "I dream of you every night 🌙", "Eres mi amor eterno 💘", "You’re my sweetest thought 🍯",
-      "Tu sonrisa ilumina mi mundo 💡", "I love you endlessly 💕", "Eres mi corazón 💓",
-      "Can't wait to hold your hand 🤝", "Te amo más cada mañana ☀️", "You make my soul dance 💃",
-      "Eres todo lo que necesito ❤️", "Our love is my favorite story 📖", "Cada día falta menos 💞"
-    ];
-    const totalDays = 65; 
-    const today = new Date();
-    const diffDays = Math.floor((target - today.getTime()) / (1000 * 60 * 60 * 24));
-    const index = Math.min(messages.length - 1, Math.max(0, totalDays - diffDays));
-    messageEl.textContent = messages[index];
   </script>
 </body>
 </html>
-
